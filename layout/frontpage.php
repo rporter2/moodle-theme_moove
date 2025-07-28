@@ -114,8 +114,11 @@ $themesettings = new \theme_moove\util\settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer());
 
+
 $template = 'theme_moove/drawers';
-if (!isloggedin()) {
+
+// Display front page sections only for logged-in users.
+if (isloggedin()) {
     $templatecontext = array_merge($templatecontext, $themesettings->frontpage());
 
     $template = 'theme_moove/frontpage';
